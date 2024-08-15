@@ -1,4 +1,4 @@
-<<!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
@@ -19,7 +19,9 @@
             <!-- Server card for BuildCraft -->
             <div class="server-card">
                 <h3>BuildCraft</h3>
-                <p>IP: <span>xxx.xxx.xxx.xxx</span></p>
+                <p>IP:
+                    <span class="ip-box" id="mc1.averyfisher.com" onclick="copyToClipboard('mc1.averyfisher.com')">mc1.averyfisher.com</span>
+                </p>
                 <div class="links">
                     <a href="#">Dynmap</a>
                     <a href="#">Seedmap</a>
@@ -31,7 +33,9 @@
             <!-- Server card for Server2 -->
             <div class="server-card">
                 <h3>Server2</h3>
-                <p>IP: <span>xxx.xxx.xxx.xxx</span></p>
+                <p>IP:
+                    <span class="ip-box" id="ip-address2" onclick="copyToClipboard('ip-address2')">xxx.xxx.xxx.xxx</span>
+                </p>
                 <div class="links">
                     <a href="#">Dynmap</a>
                     <a href="#">Seedmap</a>
@@ -43,7 +47,9 @@
             <!-- Server card for Server3 -->
             <div class="server-card">
                 <h3>Server3</h3>
-                <p>IP: <span>xxx.xxx.xxx.xxx</span></p>
+                <p>IP:
+                    <span class="ip-box" id="ip-address3" onclick="copyToClipboard('ip-address3')">xxx.xxx.xxx.xxx</span>
+                </p>
                 <div class="links">
                     <a href="#">Dynmap</a>
                     <a href="#">Seedmap</a>
@@ -53,5 +59,16 @@
             </div>
         </div>
     </div>
+
+    <script>
+        function copyToClipboard(id) {
+            var copyText = document.getElementById(id).textContent;
+            navigator.clipboard.writeText(copyText).then(function() {
+                alert('Copied to clipboard: ' + copyText);
+            }, function(err) {
+                console.error('Async: Could not copy text: ', err);
+            });
+        }
+    </script>
 </body>
 </html>

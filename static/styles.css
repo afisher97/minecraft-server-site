@@ -66,7 +66,17 @@ body {
     text-decoration: underline;
 }
 
-.server-card span {
+.server-card span.ip-box {
+    background-color: #333;
+    border: 1px solid #ff4c4c;
+    padding: 5px 10px;
+    border-radius: 5px;
     font-weight: bold;
     font-size: 16px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.server-card span.ip-box:hover {
+    background-color: #444;
 }
