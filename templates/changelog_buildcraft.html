@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>BuildCraft Changelog</title>
+    <link rel="stylesheet" href="/static/styles.css">
+</head>
+<body>
+    <div class="container">
+        <!-- Sidebar -->
+        <div class="sidebar">
+            <h2>BuildCraft Changelog</h2>
+            <!-- Add sidebar content here -->
+        </div>
+
+        <!-- Main content -->
+        <div class="main-content">
+            <div class="changelog-card">
+                <h2>BuildCraft Changelog</h2>
+                <div class="changelog-content">
+                    <pre>
+                        {% for line in changelog %}
+                            {{ line }}
+                        {% endfor %}
+                    </pre>
+                </div>
+                <a href="/">Back to Home</a>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
