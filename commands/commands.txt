@@ -1,0 +1,20 @@
+/backpack
+/afk
+/fly
+/getpos
+/god
+/home
+/sethome
+/pay
+/top
+/tpa [player]
+/tpahere [player]
+/tppos [coordinates]
+/warp [warp]
+/whois [player]
+/setwarp [warp]
+/listpwarps
+/setpwarp [warp]
+/pwarp [warp]
+/spawn
+/back
