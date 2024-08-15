@@ -1,0 +1,72 @@
+/* Basic reset */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    background-color: #121212; /* Dark background */
+    color: #fff; /* White text */
+}
+
+.container {
+    display: flex;
+    min-height: 100vh; /* Full viewport height */
+}
+
+/* Sidebar styling */
+.sidebar {
+    width: 20%;
+    background-color: #1e1e1e;
+    padding: 20px;
+    border-right: 1px solid #333;
+}
+
+.sidebar h2 {
+    color: #ffffff;
+    font-size: 20px;
+}
+
+/* Main content styling */
+.main-content {
+    width: 80%;
+    padding: 20px;
+}
+
+.server-card {
+    background-color: #222;
+    border: 1px solid #333;
+    border-radius: 10px;
+    padding: 20px;
+    margin-bottom: 20px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+.server-card h3 {
+    margin-bottom: 10px;
+    font-size: 24px;
+    color: #ff4c4c; /* Red color for the server name */
+}
+
+.server-card p {
+    margin-bottom: 10px;
+    font-size: 18px;
+}
+
+.server-card .links a {
+    color: #ff4c4c; /* Red links */
+    text-decoration: none;
+    margin-right: 10px;
+    font-size: 16px;
+}
+
+.server-card .links a:hover {
+    text-decoration: underline;
+}
+
+.server-card span {
+    font-weight: bold;
+    font-size: 16px;
+}
