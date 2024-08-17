@@ -8,20 +8,24 @@
 </head>
 <body>
     <div class="container">
-        <!-- Sidebar -->
-        <div class="sidebar">
-            <h2>Side panel</h2>
-            <!-- Add sidebar content here -->
-        </div>
 
         <!-- Main content -->
         <div class="main-content">
             <!-- Server card for BuildCraft -->
             <div class="server-card">
-                <h3>BuildCraft</h3>
+
+                 <!-- Server name and version on the same line -->
+                <div class="server-header">
+                    <h3>BuildCraft</h3>
+                    <span class="server-version">{{ buildcraft_info.version }}</span>
+                </div>
+
+                <!-- IP ox for server card -->
                 <p>IP:
-                    <span class="ip-box" id="50.86.215.18" onclick="copyToClipboard('mc1.averyfisher.com')">mc1.averyfisher.com</span>
+                    <span class="ip-box" id="ip-address1" onclick="copyToClipboard('mc1.averyfisher.com')">mc1.averyfisher.com</span>
                 </p>
+
+                <!-- Links on bottom of server card -->
                 <div class="links">
                     <a href="#">Dynmap</a>
                     <a href="#">Seedmap</a>
@@ -29,32 +33,38 @@
                     <a href="/buildcraft/permissions">Permissions</a>
                 </div>
 
-                <!-- Display server stats dynamically -->
-                {% if buildcraft_info.error %}
-                    <p>Status: Offline</p>
-                {% else %}
-                    <p>Status: Online</p>
-                    <p>Version: {{ buildcraft_info.version }}</p>
-                    <p>Players Online: {{ buildcraft_info.players_online }}</p>
-                    <p>Latency: {{ buildcraft_info.latency }} ms</p>
+                <!-- Server status and player count in top right -->
+                <div class="status-container">
+                    <div class="player-count">
+                        {{ buildcraft_info.players_online }} players
+                        <div class="player-list">
+                            <ul>
+                                {% for player in buildcraft_info.players_sample %}
+                                    <li>{{ player }}</li>
+                                {% endfor %}
+                            </ul>
+                        </div>
+                    </div>
 
-                    {% if buildcraft_info.players_sample %}
-                        <h4>Online Players:</h4>
-                        <ul>
-                            {% for player in buildcraft_info.players_sample %}
-                                <li>{{ player }}</li>
-                            {% endfor %}
-                        </ul>
-                    {% endif %}
-                {% endif %}
-
+                    <!-- Information on if server is online or offline -->
+                    <div class="status {% if buildcraft_info.error %}offline{% else %}online{% endif %}">
+                        {% if buildcraft_info.error %}
+                            Offline
+                        {% else %}
+                            Online
+                        {% endif %}
+                    </div>
+                </div>
             </div>
 
-            <!-- Server card for Server2 -->
+
+            <!-- Blank Server Card Template -->
             <div class="server-card">
-                <h3>Server2</h3>
+                <div class="server-header">
+                    <h3>Server Card Template</h3>
+                </div>
                 <p>IP:
-                    <span class="ip-box" id="ip-address2" onclick="copyToClipboard('ip-address2')">xxx.xxx.xxx.xxx</span>
+                    <span class="ip-box" id="ip-address2" onclick="copyToClipboard('ip-address2')">Coming Soon!</span>
                 </p>
                 <div class="links">
                     <a href="#">Dynmap</a>
@@ -66,9 +76,12 @@
 
             <!-- Server card for Server3 -->
             <div class="server-card">
-                <h3>Server3</h3>
+                <div class="server-header">
+                    <h3>Server Card Template</h3>
+                </div>
+
                 <p>IP:
-                    <span class="ip-box" id="ip-address3" onclick="copyToClipboard('ip-address3')">xxx.xxx.xxx.xxx</span>
+                    <span class="ip-box" id="ip-address3" onclick="copyToClipboard('ip-address3')">Coming Soon!</span>
                 </p>
                 <div class="links">
                     <a href="#">Dynmap</a>
@@ -80,15 +93,29 @@
         </div>
     </div>
 
-    <script>
-        function copyToClipboard(id) {
-            var copyText = document.getElementById(id).textContent;
-            navigator.clipboard.writeText(copyText).then(function() {
-                alert('Copied to clipboard: ' + copyText);
-            }, function(err) {
-                console.error('Async: Could not copy text: ', err);
-            });
+
+    <!-- Javascript to enable copy IP function for each server card -->
+<script>
+    function copyToClipboard(value) {
+        // Create a temporary input element to copy the value
+        var tempInput = document.createElement("input");
+
+        // Check if value is a string (IP address) or an element ID
+        if (value.includes(".")) {
+            tempInput.value = value; // If it's a string like mc1.averyfisher.com
+        } else {
+            var element = document.getElementById(value);
+            tempInput.value = element.innerText; // Copy text content of the element
         }
-    </script>
+
+        document.body.appendChild(tempInput);
+        tempInput.select();
+        tempInput.setSelectionRange(0, 99999); // For mobile devices
+        document.execCommand("copy");
+        document.body.removeChild(tempInput);
+        alert("Copied the IP: " + tempInput.value);
+    }
+</script>
+
 </body>
 </html>

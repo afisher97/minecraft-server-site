@@ -1,19 +1,14 @@
-/* Basic reset */
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-}
-
 body {
-    font-family: Arial, sans-serif;
-    background-color: #121212; /* Dark background */
-    color: #fff; /* White text */
+    font-family: 'Arial', sans-serif;
+    background-color: #121212; /* Darker background for the page */
+    color: #f0f0f0; /* Off-white text for readability */
 }
 
 .container {
     display: flex;
-    min-height: 100vh; /* Full viewport height */
+    flex-direction: column;
+    align-items: center;
+    padding: 20px;
 }
 
 /* Sidebar styling */
@@ -24,68 +19,88 @@ body {
     border-right: 1px solid #333;
 }
 
-.sidebar h2 {
-    color: #ffffff;
-    font-size: 20px;
-}
-
-/* Main content styling */
 .main-content {
-    width: 80%;
-    padding: 20px;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
 }
 
+/* Server card styling */
 .server-card {
-    background-color: #222;
-    border: 1px solid #333;
-    border-radius: 10px;
-    padding: 20px;
+    position: relative; /* Ensures the absolute elements are position relative to this card */
+    background-color: #1e1e1e; /* Darker card background */
+    border: 1px solid rgba(255, 255, 255, 0.1); /* Subtle border */
+    border-radius: 12px; /* Slightly more rounded corners */
+    padding: 25px;
     margin-bottom: 20px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    width: 100%;
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15); /* Soft shadow for depth */
+    transition: transform 0.3s ease-in-out;
+}
+
+.server-card:hover {
+    transform: translateY(-5px); /* Slight elevation on hover */
+    transition: transform 0.2s ease;
 }
 
 
-.server-card h3 {
-    margin-bottom: 10px;
-    font-size: 24px;
-    color: #ff4c4c; /* Red color for the server name */
-}
 
 .server-card p {
-    margin-bottom: 10px;
-    font-size: 18px;
+    margin: 10px 0;
+    font-size: 16px;
+    line-height: 1.6;
+    color: #aaa; /* Use lighter grays for secondary text */
 }
 
 .server-card .links a {
-    color: #ff4c4c; /* Red links */
+    position: relative; /* Needed for the pseudo-element */
+    color: #b0b0b0; /* Softer gray for links */
     text-decoration: none;
-    margin-right: 10px;
+    margin-right: 15px;
     font-size: 16px;
+    transition: color 0.3s ease; /* Smooth color change */
+}
+
+/* Create the animated underline */
+.links a::before {
+    content: "";
+    position: absolute;
+    width: 0;
+    height: 2px;
+    bottom: -2px; /* Position the underline just below the text */
+    left: 0;
+    background-color: #f0f0f0; /* The underline color */
+    transition: width 0.3s ease-out; /* Animate the width for the scrolling effect */
+}
+
+/* On hover, expand the underline */
+.links a:hover::before {
+    width: 100%; /* Expand to full width */
 }
 
 .server-card .links a:hover {
-    text-decoration: underline;
+    color: #f0f0f0; /* White on hover */
+
 }
 
-.server-card span.ip-box {
-    background-color: #333;
-    border: 1px solid #ff4c4c;
-    padding: 5px 10px;
+.server-card .ip-box {
+    display: inline-block;
+    background-color: #333; /* Darker gray background for the IP box */
     border-radius: 5px;
+    padding: 8px 12px;
     font-weight: bold;
-    font-size: 16px;
-    cursor: pointer;
-    transition: background-color 0.3s ease;
+    color: #f0f0f0; /* Off-white text */
+    margin-left: 10px;
 }
 
-.server-card span.ip-box:hover {
-    background-color: #444;
+.server-card .stats {
+    margin-top: 15px;
 }
 
-.server-card h4 {
-    margin-top: 10px;
-    font-size: 18px;
-    color: #ff4c4c;
+.server-card .stats p {
+    font-size: 18px; /* Larger font for stats */
+    color: #ddd;
+    margin: 5px 0;
 }
 
 .server-card ul {
@@ -95,5 +110,108 @@ body {
 
 .server-card ul li {
     font-size: 16px;
+    color: #ddd;
     margin-bottom: 5px;
+}
+
+/* Positioning and styling for the server status and player count */
+.server-card .status-container {
+    position: absolute;
+    top: 15px;
+    right: 20px;
+    display: flex;
+    align-items: center;
+}
+
+.server-card .status {
+    padding: 5px 10px;
+    border-radius: 5px;
+    font-size: 14px;
+    font-weight: bold;
+    color: white;
+}
+
+.server-card .status.online {
+    background-color: #28a745; /* Green for online */
+}
+
+.server-card .status.offline {
+    background-color: #dc3545; /* Red for offline */
+}
+
+.server-card .player-count {
+    margin-right: 10px;
+    font-size: 14px;
+    color: #ccc; /* Light gray for player count */
+    position: relative;
+    cursor: pointer;
+}
+
+.server-card .player-count:hover .player-list {
+    display: block;
+}
+
+/* Tooltip style for player list */
+.server-card .player-list {
+    display: none;
+    position: absolute;
+    top: 20px;
+    right: 0;
+    background-color: #333;
+    padding: 10px;
+    border-radius: 5px;
+    font-size: 14px;
+    white-space: nowrap;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    z-index: 100;
+}
+
+.server-card .player-list ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    color: #fff;
+}
+
+.server-card .player-list ul li {
+    margin: 5px 0;
+    font-size: 14px;
+    color: #f0f0f0; /* Off-white text for player names */
+    display: flex;
+    align-items: center;
+}
+
+
+/* Flexbox container for server name and version */
+.server-header {
+    display: flex;
+    align-items: center;
+    gap: 10px; /* Small gap between the server name and version */
+}
+
+.server-header h3 {
+    color: #f0f0f0; /* White text for server name */
+    font-size: 28px;
+    margin: 0;
+}
+
+/* Styling for the version, to match player number font size */
+.server-header .server-version {
+    font-size: 14px; /* Match the size of the player number */
+     color: #ccc; /* Lighter gray for version */
+    font-weight: normal;
+}
+
+/* Mobile-Friendly: Design adapts to smaller screens. Using media queries to adjust font sizes, card padding, and layout when viewed on mobile devices: */
+@media (max-width: 768px) {
+    .server-card {
+        padding: 20px;
+    }
+    .server-card h3 {
+        font-size: 22px;
+    }
+    .server-card .status-container {
+        top: 10px;
+        right: 10px;
+    }
 }
