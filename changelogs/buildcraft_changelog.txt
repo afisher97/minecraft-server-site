@@ -1,3 +1,5 @@
+[2024-08-15] Created symbolic link for dynmap files, reduced server backup time from 2 hours to 5 1/2 minutes (95.4% decrease!)
+[2024-08-15] Updated Geyser-Spigot
 [2024-08-11] Added NoEndermanGrief-1.14_1.0.9
 [2024-07-31] Added Dynmap-3.7-beta-6-spigot
 [2024-07-24] Updated MoDispenserMechanics-1.10.0

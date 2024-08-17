@@ -20,7 +20,7 @@
             <div class="server-card">
                 <h3>BuildCraft</h3>
                 <p>IP:
-                    <span class="ip-box" id="mc1.averyfisher.com" onclick="copyToClipboard('mc1.averyfisher.com')">mc1.averyfisher.com</span>
+                    <span class="ip-box" id="50.86.215.18" onclick="copyToClipboard('mc1.averyfisher.com')">mc1.averyfisher.com</span>
                 </p>
                 <div class="links">
                     <a href="#">Dynmap</a>
@@ -28,6 +28,26 @@
                     <a href="/buildcraft/changelog">Changelog</a> <!-- Link to BuildCraft's changelog -->
                     <a href="/buildcraft/permissions">Permissions</a>
                 </div>
+
+                <!-- Display server stats dynamically -->
+                {% if buildcraft_info.error %}
+                    <p>Status: Offline</p>
+                {% else %}
+                    <p>Status: Online</p>
+                    <p>Version: {{ buildcraft_info.version }}</p>
+                    <p>Players Online: {{ buildcraft_info.players_online }}</p>
+                    <p>Latency: {{ buildcraft_info.latency }} ms</p>
+
+                    {% if buildcraft_info.players_sample %}
+                        <h4>Online Players:</h4>
+                        <ul>
+                            {% for player in buildcraft_info.players_sample %}
+                                <li>{{ player }}</li>
+                            {% endfor %}
+                        </ul>
+                    {% endif %}
+                {% endif %}
+
             </div>
 
             <!-- Server card for Server2 -->

@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Server Status</title>
+</head>
+<body>
+    <h1>Minecraft Server Status</h1>
+
+    {% if server_info.error %}
+        <p>Error: {{ server_info.error }}</p>
+    {% else %}
+        <p>Version: {{ server_info.version }}</p>
+        <p>Players Online: {{ server_info.players_online }}</p>
+        <p>Latency: {{ server_info.latency }} ms</p>
+
+        {% if server_info.players_sample %}
+            <h3>Online Players:</h3>
+            <ul>
+                {% for player in server_info.players_sample %}
+                    <li>{{ player }}</li>
+                {% endfor %}
+            </ul>
+        {% else %}
+            <p>No players are online.</p>
+        {% endif %}
+    {% endif %}
+
+    <a href="/">Back to Home</a>
+</body>
+</html>
