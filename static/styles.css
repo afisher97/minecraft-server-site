@@ -215,3 +215,9 @@ body {
         right: 10px;
     }
 }
+.server-subtitle {
+    font-size: 16px;
+    color: #b0b0b0; /* Slightly muted color for subtitle */
+    margin: 5px 0 15px 0; /* Add space between the subtitle and other elements */
+    font-style: italic; /* Optional: make the subtitle italic */
+}

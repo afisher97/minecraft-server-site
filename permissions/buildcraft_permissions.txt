@@ -36,3 +36,12 @@ Group: Member
    setwarp.setpwarp
    silkspawners.info
    silkspawners.viewtype
+   griefprevention.transferclaim
+   griefprevention.seeinactivity
+   griefprevention.buysellclaimblocks
+   griefprevention.visualizenearbyclaims
+   griefprevention.claims
+   griefprevention.abandonallclaims
+   griefprevention.claimslistother
+   griefprevention.createclaims
+   griefprevention.deleteclaims
