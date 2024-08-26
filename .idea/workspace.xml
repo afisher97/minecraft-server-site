@@ -5,14 +5,7 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="70e73b7e-c6cb-42fe-8dbb-51a23bd2fe0d" name="Changes" comment="Lots of UI changes and color updates">
-      <change afterPath="$PROJECT_DIR$/templates/dynmap.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app.py" beforeDir="false" afterPath="$PROJECT_DIR$/app.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/changelogs/buildcraft_changelog.txt" beforeDir="false" afterPath="$PROJECT_DIR$/changelogs/buildcraft_changelog.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/commands/commands.txt" beforeDir="false" afterPath="$PROJECT_DIR$/commands/buildcraft_commands.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/permissions/buildcraft_permissions.txt" beforeDir="false" afterPath="$PROJECT_DIR$/permissions/buildcraft_permissions.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/static/styles.css" beforeDir="false" afterPath="$PROJECT_DIR$/static/styles.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/index.html" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -113,7 +106,7 @@
       <updated>1723603303992</updated>
       <workItem from="1723603316068" duration="7986000" />
       <workItem from="1723760732306" duration="10582000" />
-      <workItem from="1723921938857" duration="6927000" />
+      <workItem from="1723921938857" duration="7759000" />
     </task>
     <task id="LOCAL-00001" summary="Initial upload">
       <option name="closed" value="true" />
@@ -171,7 +164,15 @@
       <option name="project" value="LOCAL" />
       <updated>1723923066525</updated>
     </task>
-    <option name="localTasksCounter" value="8" />
+    <task id="LOCAL-00008" summary="Lots of UI changes and color updates">
+      <option name="closed" value="true" />
+      <created>1724618768883</created>
+      <option name="number" value="00008" />
+      <option name="presentableId" value="LOCAL-00008" />
+      <option name="project" value="LOCAL" />
+      <updated>1724618768883</updated>
+    </task>
+    <option name="localTasksCounter" value="9" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -199,6 +200,6 @@
     <option name="LAST_COMMIT_MESSAGE" value="Lots of UI changes and color updates" />
   </component>
   <component name="com.intellij.coverage.CoverageDataManagerImpl">
-    <SUITE FILE_PATH="coverage/minecraft_server_site$minecraft_server_site.coverage" NAME="minecraft-server-site Coverage Results" MODIFIED="1724618489317" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
+    <SUITE FILE_PATH="coverage/minecraft_server_site$minecraft_server_site.coverage" NAME="minecraft-server-site Coverage Results" MODIFIED="1724618744233" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
   </component>
 </project>
