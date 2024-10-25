@@ -1,3 +1,6 @@
+[2024-09-25] Updated Geyser-spigot
+[2024-09-04] Updated floodgate-spigot
+[2024-09-04] Updated Geyser-spigot
 [2024-08-24] Added Dynmap-GriefPrevention-0.88
 [2024-08-24] Added GriefPrevention
 [2024-08-15] Created symbolic link for dynmap files, reduced server backup time from 2 hours to 5 1/2 minutes (95.4% decrease!)

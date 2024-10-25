@@ -6,7 +6,7 @@
   <component name="ChangeListManager">
     <list default="true" id="70e73b7e-c6cb-42fe-8dbb-51a23bd2fe0d" name="Changes" comment="Update host">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/static/styles.css" beforeDir="false" afterPath="$PROJECT_DIR$/static/styles.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/changelogs/buildcraft_changelog.txt" beforeDir="false" afterPath="$PROJECT_DIR$/changelogs/buildcraft_changelog.txt" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -108,6 +108,8 @@
       <workItem from="1723603316068" duration="7986000" />
       <workItem from="1723760732306" duration="10582000" />
       <workItem from="1723921938857" duration="10611000" />
+      <workItem from="1725496642030" duration="654000" />
+      <workItem from="1729894028305" duration="27000" />
     </task>
     <task id="LOCAL-00001" summary="Initial upload">
       <option name="closed" value="true" />
