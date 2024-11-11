@@ -48,7 +48,7 @@ def server_file(server, file_type):
     return render_template('server_file.html', title=page_title, content=content)
 
 
-def query_minecraft_server(ip, port=25565):
+def query_minecraft_server(ip, port):
     try:
         server = JavaServer.lookup(f"{ip}:{port}")
         status = server.status()
@@ -82,8 +82,14 @@ def dynmap(server_ip):
 def home():
     # Query BuildCraft server stats
     buildcraft_info = query_minecraft_server("50.86.215.18", 25565)
+    # players_online is returned as a string, must convert to integer to display correctly
+    buildcraft_info["players_online"] = int(buildcraft_info.get("players_online", 0))
+    # Query SavageLands server stats
+    savagelands_info = query_minecraft_server("50.86.215.18", 25566)
+    # players_online is returned as a string, must convert to integer to display correctly
+    savagelands_info["players_online"] = int(savagelands_info.get("players_online", 0))
     # Similarly, query other servers if needed
-    return render_template('index.html', buildcraft_info=buildcraft_info)
+    return render_template('index.html', buildcraft_info=buildcraft_info, savagelands_info=savagelands_info)
 
 
 

@@ -1,3 +1,4 @@
+[2024-10-24] Updated Geyser-spigot
 [2024-09-25] Updated Geyser-spigot
 [2024-09-04] Updated floodgate-spigot
 [2024-09-04] Updated Geyser-spigot

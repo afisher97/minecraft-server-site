@@ -40,7 +40,10 @@
                 <!-- Server status and player count in top right -->
                 <div class="status-container">
                     <div class="player-count">
-                        {{ buildcraft_info.players_online }} players
+                        {% if buildcraft_info.players_online > 0 %}
+                            {{ buildcraft_info.players_online }}
+                            {% if buildcraft_info.players_online|default(0) == 1 %}player{% else %}players{% endif %}
+                        {% endif %}
                         <div class="player-list">
                             <ul>
                                 {% for player in buildcraft_info.players_sample %}
@@ -65,32 +68,59 @@
             <!-- Blank Server Card Template -->
             <div class="server-card">
                 <div class="server-header">
+                    <h3>SavageLands</h3>
+                    <span class="server-version">{{ savagelands_info.version }}</span>
+                </div>
+
+                <!-- Subtitle for the server -->
+                <p class="server-subtitle">A hardcore Minecraft experience</p>
+
+                <p>IP:
+                    <span class="ip-box" id="mc2.averyfisher.com" onclick="copyToClipboard('mc2.averyfisher.com')">mc2.averyfisher.com</span>
+                </p>
+                <div class="links">
+                    <a href="#">Changelog</a>
+                    <a href="#">Permissions</a>
+                    <a href="#">Commands</a>
+                </div>
+
+
+                <!-- Server status and player count in top right -->
+                <div class="status-container">
+                    <div class="player-count">
+                        {% if savagelands_info.players_online > 0 %}
+                            {{ savagelands_info.players_online }}
+                            {% if savagelands_info.players_online|default(0) == 1 %}player{% else %}players{% endif %}
+                        {% endif %}
+                        <div class="player-list">
+                            <ul>
+                                {% for player in savagelands_info.players_sample %}
+                                    <li>{{ player }}</li>
+                                {% endfor %}
+                            </ul>
+                        </div>
+                    </div>
+
+                    <!-- Information on if server is online or offline -->
+                    <div class="status {% if savagelands_info.error %}offline{% else %}online{% endif %}">
+                        {% if savagelands_info.error %}
+                            Offline
+                        {% else %}
+                            Online
+                        {% endif %}
+                    </div>
+                </div>
+            </div>
+
+
+            <!-- Server card for Server3 -->
+            <div class="server-card">
+                <div class="server-header">
                     <h3>Avery's Create Mod</h3>
                 </div>
 
                 <!-- Subtitle for the server -->
                 <p class="server-subtitle">A CreateMod server with a few extras</p>
-
-                <p>IP:
-                    <span class="ip-box" id="ip-address2" onclick="copyToClipboard('ip-address2')">Coming Soon!</span>
-                </p>
-                <div class="links">
-                    <a href="#">Dynmap</a>
-                    <a href="#">Seedmap</a>
-                    <a href="#">Changelog</a>
-                    <a href="#">Permissions</a>
-                    <a href="#">Commands</a>
-                </div>
-            </div>
-
-            <!-- Server card for Server3 -->
-            <div class="server-card">
-                <div class="server-header">
-                    <h3>Avery's Hardcore</h3>
-                </div>
-
-                <!-- Subtitle for the server -->
-                <p class="server-subtitle">An ultra-hardcore minecraft experience</p>
 
                 <p>IP:
                     <span class="ip-box" id="ip-address3" onclick="copyToClipboard('ip-address3')">Coming Soon!</span>

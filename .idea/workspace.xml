@@ -6,7 +6,9 @@
   <component name="ChangeListManager">
     <list default="true" id="70e73b7e-c6cb-42fe-8dbb-51a23bd2fe0d" name="Changes" comment="Update host">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app.py" beforeDir="false" afterPath="$PROJECT_DIR$/app.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/changelogs/buildcraft_changelog.txt" beforeDir="false" afterPath="$PROJECT_DIR$/changelogs/buildcraft_changelog.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/index.html" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -109,7 +111,7 @@
       <workItem from="1723760732306" duration="10582000" />
       <workItem from="1723921938857" duration="10611000" />
       <workItem from="1725496642030" duration="654000" />
-      <workItem from="1729894028305" duration="27000" />
+      <workItem from="1729894028305" duration="3565000" />
     </task>
     <task id="LOCAL-00001" summary="Initial upload">
       <option name="closed" value="true" />
@@ -183,7 +185,15 @@
       <option name="project" value="LOCAL" />
       <updated>1724638563632</updated>
     </task>
-    <option name="localTasksCounter" value="10" />
+    <task id="LOCAL-00010" summary="Update host">
+      <option name="closed" value="true" />
+      <created>1729894065957</created>
+      <option name="number" value="00010" />
+      <option name="presentableId" value="LOCAL-00010" />
+      <option name="project" value="LOCAL" />
+      <updated>1729894065957</updated>
+    </task>
+    <option name="localTasksCounter" value="11" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -212,6 +222,6 @@
     <option name="LAST_COMMIT_MESSAGE" value="Update host" />
   </component>
   <component name="com.intellij.coverage.CoverageDataManagerImpl">
-    <SUITE FILE_PATH="coverage/minecraft_server_site$minecraft_server_site.coverage" NAME="minecraft-server-site Coverage Results" MODIFIED="1724727259120" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
+    <SUITE FILE_PATH="coverage/minecraft_server_site$minecraft_server_site.coverage" NAME="minecraft-server-site Coverage Results" MODIFIED="1731366418142" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
   </component>
 </project>
