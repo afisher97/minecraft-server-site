@@ -4,8 +4,8 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="70e73b7e-c6cb-42fe-8dbb-51a23bd2fe0d" name="Changes" comment="Updates to test network performance">
-      <change beforePath="$PROJECT_DIR$/templates/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/index.html" afterDir="false" />
+    <list default="true" id="70e73b7e-c6cb-42fe-8dbb-51a23bd2fe0d" name="Changes" comment="Revert">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -111,7 +111,7 @@
       <workItem from="1729894028305" duration="4182000" />
       <workItem from="1739670517268" duration="1332000" />
       <workItem from="1740860604990" duration="13000" />
-      <workItem from="1743277205048" duration="1093000" />
+      <workItem from="1743277205048" duration="1526000" />
     </task>
     <task id="LOCAL-00001" summary="Initial upload">
       <option name="closed" value="true" />
@@ -209,7 +209,23 @@
       <option name="project" value="LOCAL" />
       <updated>1743278633853</updated>
     </task>
-    <option name="localTasksCounter" value="13" />
+    <task id="LOCAL-00013" summary="Removing extra server card">
+      <option name="closed" value="true" />
+      <created>1743279070238</created>
+      <option name="number" value="00013" />
+      <option name="presentableId" value="LOCAL-00013" />
+      <option name="project" value="LOCAL" />
+      <updated>1743279070238</updated>
+    </task>
+    <task id="LOCAL-00014" summary="Revert">
+      <option name="closed" value="true" />
+      <created>1743279391439</created>
+      <option name="number" value="00014" />
+      <option name="presentableId" value="LOCAL-00014" />
+      <option name="project" value="LOCAL" />
+      <updated>1743279391440</updated>
+    </task>
+    <option name="localTasksCounter" value="15" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -236,7 +252,9 @@
     <MESSAGE value="Lots of UI changes and color updates" />
     <MESSAGE value="Update host" />
     <MESSAGE value="Updates to test network performance" />
-    <option name="LAST_COMMIT_MESSAGE" value="Updates to test network performance" />
+    <MESSAGE value="Removing extra server card" />
+    <MESSAGE value="Revert" />
+    <option name="LAST_COMMIT_MESSAGE" value="Revert" />
   </component>
   <component name="com.intellij.coverage.CoverageDataManagerImpl">
     <SUITE FILE_PATH="coverage/minecraft_server_site$minecraft_server_site.coverage" NAME="minecraft-server-site Coverage Results" MODIFIED="1731368547917" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
