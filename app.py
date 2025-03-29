@@ -91,7 +91,10 @@ def home():
     # Similarly, query other servers if needed
     return render_template('index.html', buildcraft_info=buildcraft_info, savagelands_info=savagelands_info)
 
-
+@app.route("/test")
+# Test route to check network performace
+def test():
+    return "Hello World!"
 
 if __name__ == '__main__':
     app.run(host='0.0.0.0', port=8080, debug=True)
