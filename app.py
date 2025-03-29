@@ -81,11 +81,11 @@ def dynmap(server_ip):
 @app.route('/')
 def home():
     # Query BuildCraft server stats
-    buildcraft_info = query_minecraft_server("50.86.215.18", 25565)
+    buildcraft_info = query_minecraft_server("67.20.0.66", 25565)
     # players_online is returned as a string, must convert to integer to display correctly
     buildcraft_info["players_online"] = int(buildcraft_info.get("players_online", 0))
     # Query SavageLands server stats
-    savagelands_info = query_minecraft_server("50.86.215.18", 25566)
+    savagelands_info = query_minecraft_server("67.20.0.66", 25566)
     # players_online is returned as a string, must convert to integer to display correctly
     savagelands_info["players_online"] = int(savagelands_info.get("players_online", 0))
     # Similarly, query other servers if needed
