@@ -17,7 +17,7 @@
                  <!-- Server name and version on the same line -->
                 <div class="server-header">
                     <h3>BuildCraft</h3>
-                    <span class="server-version">{{ buildcraft_info.version }}</span>
+
                 </div>
 
                 <!-- Subtitle for the server -->
@@ -30,7 +30,7 @@
 
                 <!-- Links on bottom of server card -->
                 <div class="links">
-                    <a href="/dynmap/50.86.215.18">Dynmap</a>
+                    <a href="/dynmap/map.mc1.averyfisher.com">Dynmap</a>
                     <a href="https://www.chunkbase.com/apps/seed-map#seed=5292203055257791795&platform=java_1_21&dimension=overworld&x=0&z=0&zoom=0.5" target="_blank">Seedmap</a>
                     <a href="/buildcraft/changelog">Changelog</a> <!-- Link to BuildCraft's changelog -->
                     <a href="/buildcraft/permissions">Permissions</a>
@@ -39,29 +39,24 @@
 
                 <!-- Server status and player count in top right -->
                 <div class="status-container">
-                    <div class="player-count">
-                        {% if buildcraft_info.players_online > 0 %}
-                            {{ buildcraft_info.players_online }}
-                            {% if buildcraft_info.players_online|default(0) == 1 %}player{% else %}players{% endif %}
-                        {% endif %}
-                        <div class="player-list">
-                            <ul>
-                                {% for player in buildcraft_info.players_sample %}
-                                    <li>{{ player }}</li>
-                                {% endfor %}
+                     <!-- Player count container: hover triggers display of .player-list -->
+                    <div class="player-count" id="buildcraft-players">Loading...</div>
+                        <!-- Set the text via JavaScript (e.g., "2 players") -->
+                        <div class="player-list" id="buildcraft-playerlist">
+                            <ul id="buildcraft-players-ul">
+                                <!-- JS will insert <li> elements for each player here -->
                             </ul>
                         </div>
-                    </div>
-
-                    <!-- Information on if server is online or offline -->
-                    <div class="status {% if buildcraft_info.error %}offline{% else %}online{% endif %}">
-                        {% if buildcraft_info.error %}
-                            Offline
-                        {% else %}
-                            Online
-                        {% endif %}
-                    </div>
+                    <div class="status" id="buildcraft-status"></div>
                 </div>
+
+                <!-- List of players (populated by JS) -->
+                <div class="player-list">
+                    <ul id="buildcraft-players-sample">
+                    <!-- JavaScript will add <li> elements here -->
+                    </ul>
+                </div>
+
             </div>
 
 
@@ -69,7 +64,7 @@
             <div class="server-card">
                 <div class="server-header">
                     <h3>SavageLands</h3>
-                    <span class="server-version">{{ savagelands_info.version }}</span>
+
                 </div>
 
                 <!-- Subtitle for the server -->
@@ -87,28 +82,15 @@
 
                 <!-- Server status and player count in top right -->
                 <div class="status-container">
-                    <div class="player-count">
-                        {% if savagelands_info.players_online > 0 %}
-                            {{ savagelands_info.players_online }}
-                            {% if savagelands_info.players_online|default(0) == 1 %}player{% else %}players{% endif %}
-                        {% endif %}
-                        <div class="player-list">
-                            <ul>
-                                {% for player in savagelands_info.players_sample %}
-                                    <li>{{ player }}</li>
-                                {% endfor %}
-                            </ul>
-                        </div>
-                    </div>
+                    <div class="player-count" id="savagelands-players"></div>
+                    <div class="status" id="savagelands-status">Loading...</div>
+                </div>
 
-                    <!-- Information on if server is online or offline -->
-                    <div class="status {% if savagelands_info.error %}offline{% else %}online{% endif %}">
-                        {% if savagelands_info.error %}
-                            Offline
-                        {% else %}
-                            Online
-                        {% endif %}
-                    </div>
+                <!-- List of players (populated by JS) -->
+                <div class="player-list">
+                    <ul id="savagelands-players-sample">
+                    <!-- JavaScript will add <li> elements here -->
+                    </ul>
                 </div>
             </div>
 
@@ -138,27 +120,10 @@
 
 
     <!-- Javascript to enable copy IP function for each server card -->
-<script>
-    function copyToClipboard(value) {
-        // Create a temporary input element to copy the value
-        var tempInput = document.createElement("input");
+<script src="{{ url_for('static', filename='js/copyToClipboard.js') }}"></script>
 
-        // Check if value is a string (IP address) or an element ID
-        if (value.includes(".")) {
-            tempInput.value = value; // If it's a string like mc1.averyfisher.com
-        } else {
-            var element = document.getElementById(value);
-            tempInput.value = element.innerText; // Copy text content of the element
-        }
-
-        document.body.appendChild(tempInput);
-        tempInput.select();
-        tempInput.setSelectionRange(0, 99999); // For mobile devices
-        document.execCommand("copy");
-        document.body.removeChild(tempInput);
-        alert("Copied the IP: " + tempInput.value);
-    }
-</script>
+    <!-- JavaScript to Fetch and Update Server Statuses -->
+<script src="{{ url_for('static', filename='js/updateServerStatus.js') }}"></script>
 
 </body>
 </html>

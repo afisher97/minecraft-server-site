@@ -1,6 +1,7 @@
-from flask import Flask, render_template
+from flask import Flask, render_template, jsonify
 from mcstatus.server import JavaServer
 import os
+import concurrent.futures
 
 app = Flask(__name__)
 
@@ -48,28 +49,64 @@ def server_file(server, file_type):
     return render_template('server_file.html', title=page_title, content=content)
 
 
-def query_minecraft_server(ip, port):
+def query_minecraft_server(ip, port, timeout=1.0):
     try:
+        # Create the server object (this call should be fast)
         server = JavaServer.lookup(f"{ip}:{port}")
-        status = server.status()
 
-        # Return the server information
-        server_info = {
+        # Use a ThreadPoolExecutor to enforce a timeout on the blocking call
+        with concurrent.futures.ThreadPoolExecutor(max_workers=1) as executor:
+            future = executor.submit(server.status)  # server.status() without a timeout argument
+            status = future.result(timeout=timeout)   # enforce timeout here
+
+        return {
             "version": status.version.name,
             "players_online": status.players.online,
             "latency": status.latency,
-            "players_sample": [player.name for player in status.players.sample] if status.players.sample else []
+            "players_sample": [player.name for player in status.players.sample] if status.players.sample else [],
+            "error": False
         }
-        return server_info
+    except concurrent.futures.TimeoutError:
+        print(f"Timeout querying {ip}:{port}")
+        return {
+            "version": "Unknown",
+            "players_online": 0,
+            "latency": None,
+            "players_sample": [],
+            "error": True
+        }
     except Exception as e:
-
-        # In case the server is offline or can't be reached
-        return {"error": str(e)}
+        print(f"Error querying {ip}:{port}: {e}")
+        return {
+            "version": "Unknown",
+            "players_online": 0,
+            "latency": None,
+            "players_sample": [],
+            "error": True
+        }
 
 @app.route('/server/<server_ip>')
 def server_status(server_ip):
     server_info = query_minecraft_server(server_ip)
     return render_template('server_status.html', server_info=server_info)
+
+
+@app.route('/api/server_status/<server_name>')
+def get_server_status(server_name):
+    # Map server names to IP/port
+    servers = {
+        "buildcraft": ("mc1.averyfisher.com", 25565),
+        "savagelands": ("mc2.averyfisher.com", 25566),
+    }
+
+    ip_port = servers.get(server_name)
+    if not ip_port:
+        return jsonify({"error": True, "message": "Unknown server"}), 404
+
+    ip, port = ip_port
+    result = query_minecraft_server(ip, port)
+    print(result)
+    return jsonify(result)
 
 @app.route('/dynmap/<server_ip>')
 def dynmap(server_ip):
@@ -80,16 +117,8 @@ def dynmap(server_ip):
 
 @app.route('/')
 def home():
-    # Query BuildCraft server stats
-    buildcraft_info = query_minecraft_server("50.86.190.114", 25565)
-    # players_online is returned as a string, must convert to integer to display correctly
-    buildcraft_info["players_online"] = int(buildcraft_info.get("players_online", 0))
-    # Query SavageLands server stats
-    savagelands_info = query_minecraft_server("50.86.190.114", 25566)
-    # players_online is returned as a string, must convert to integer to display correctly
-    savagelands_info["players_online"] = int(savagelands_info.get("players_online", 0))
-    # Similarly, query other servers if needed
-    return render_template('index.html', buildcraft_info=buildcraft_info, savagelands_info=savagelands_info)
+    # Render the page with placeholders
+    return render_template('index.html')
 
 @app.route("/test")
 # Test route to check network performace
