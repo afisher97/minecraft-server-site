@@ -4,12 +4,10 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="70e73b7e-c6cb-42fe-8dbb-51a23bd2fe0d" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/static/js/copyToClipboard.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/static/js/updateServerStatus.js" afterDir="false" />
+    <list default="true" id="70e73b7e-c6cb-42fe-8dbb-51a23bd2fe0d" name="Changes" comment="Overhaul of the way server status works. Added JavaScript to allow the server to call mcstatus after the page is loaded to reduce load time from 6 seconds to less than a second if a server is down. &#10;&#10;Moved JavaScript code from html document to individual files. &#10;&#10;Updated from IP address links to domain links.">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app.py" beforeDir="false" afterPath="$PROJECT_DIR$/app.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/index.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/dynmap.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/dynmap.html" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -119,7 +117,8 @@
       <workItem from="1743277205048" duration="2418000" />
       <workItem from="1744170438293" duration="12000" />
       <workItem from="1744295246141" duration="2435000" />
-      <workItem from="1744298844169" duration="188000" />
+      <workItem from="1744298844169" duration="2443000" />
+      <workItem from="1744940110761" duration="2810000" />
     </task>
     <task id="LOCAL-00001" summary="Initial upload">
       <option name="closed" value="true" />
@@ -257,7 +256,15 @@
       <option name="project" value="LOCAL" />
       <updated>1743279788647</updated>
     </task>
-    <option name="localTasksCounter" value="18" />
+    <task id="LOCAL-00018" summary="Overhaul of the way server status works. Added JavaScript to allow the server to call mcstatus after the page is loaded to reduce load time from 6 seconds to less than a second if a server is down. &#10;&#10;Moved JavaScript code from html document to individual files. &#10;&#10;Updated from IP address links to domain links.">
+      <option name="closed" value="true" />
+      <created>1744299168267</created>
+      <option name="number" value="00018" />
+      <option name="presentableId" value="LOCAL-00018" />
+      <option name="project" value="LOCAL" />
+      <updated>1744299168267</updated>
+    </task>
+    <option name="localTasksCounter" value="19" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -288,9 +295,10 @@
     <MESSAGE value="Revert" />
     <MESSAGE value="Changing titles" />
     <MESSAGE value="Update IP addresses of servers" />
-    <option name="LAST_COMMIT_MESSAGE" value="Update IP addresses of servers" />
+    <MESSAGE value="Overhaul of the way server status works. Added JavaScript to allow the server to call mcstatus after the page is loaded to reduce load time from 6 seconds to less than a second if a server is down. &#10;&#10;Moved JavaScript code from html document to individual files. &#10;&#10;Updated from IP address links to domain links." />
+    <option name="LAST_COMMIT_MESSAGE" value="Overhaul of the way server status works. Added JavaScript to allow the server to call mcstatus after the page is loaded to reduce load time from 6 seconds to less than a second if a server is down. &#10;&#10;Moved JavaScript code from html document to individual files. &#10;&#10;Updated from IP address links to domain links." />
   </component>
   <component name="com.intellij.coverage.CoverageDataManagerImpl">
-    <SUITE FILE_PATH="coverage/minecraft_server_site$minecraft_server_site.coverage" NAME="minecraft-server-site Coverage Results" MODIFIED="1744298918240" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
+    <SUITE FILE_PATH="coverage/minecraft_server_site$minecraft_server_site.coverage" NAME="minecraft-server-site Coverage Results" MODIFIED="1744943191071" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
   </component>
 </project>
